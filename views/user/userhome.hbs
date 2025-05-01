@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        body {
+            background: #ecf0f1;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            position: fixed;
+            background-color: #34495e;
+            padding: 3px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            position: relative;
+            left: 25%;
+            color: white;
+            font-size: 12px;
+            font-family: 'Raleway', sans-serif;
+            display: inline;
+            margin: 0 25px 0 -30px;
+            padding: 15px;
+            border-right: solid #2c3e50 2px;
+            -webkit-transition: all .5s;
+        }
+
+        nav ul li:hover {
+            border-bottom: solid 2px white;
+            color: #ecf0f1;
+            cursor: pointer;
+            padding-bottom: 10px;
+
+        }
+
+        #logout:hover {
+            color: #1abc9c;
+            cursor: pointer;
+        }
+
+        #wrapper {
+            margin: 0 auto;
+            width: 800px;
+            height: 1000px;
+        }
+
+        footer {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #95a5a6;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        a.logout {
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a.logout:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li><a href="/user/logout">
+            <button class="logout-btn">Logout</button>
+            </a></li>
+
+        </ul>
+    </nav>
+
+    <div id="wrapper"><br><br><br><br>
+        <h1>Welcome to Home</h1>
+    </div><!--end wrapper-->
+
+    <script>
+         history.pushState(null,null,location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+</body>
+
+</html>

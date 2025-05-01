@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User login</title>
+    <link rel="stylesheet" href="/userLogin.css">
+    
+</head>
+<body>
+    <form method="POST" action="/user/login" class="login-form">
+		<input type="text" id="message" value="{{{message}}}" name="message" hidden>
+	<h1>Login</h1>
+	<div class="txtb">
+		<input type="text" name="email" id="email" placeholder="email" required>
+	</div>
+	<div class="txtb">
+		<input type="password" name="password" id="password" placeholder="Password" required>
+	</div>
+	<input type="submit" value="Login" name="login" id="login" class="logbtn">
+	<div class="bottom-text">
+		Don't have account? <a href="#">Sign up</a>
+	</div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+
+document.addEventListener('DOMContentLoaded',function() {
+    document.querySelector('form').addEventListener('submit',formValidate(e));
+});
+
+const message = document.getElementById('message').value;
+	if(message){
+        
+		Swal.fire(message);
+	}
+
+     function formValidate(e) {
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if(Username == "" || email =="" || password == "" ) {
+            Swal.fire("All fields are required!");
+            return false;
+        } 
+
+		e.target.submit();
+		return true;
+    }
+
+
+</script>
+</body>
+</html>

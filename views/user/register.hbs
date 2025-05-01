@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User register</title>
+    <link rel="stylesheet" href="/userRegister.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+</head>
+<body>
+<div class="box">
+    <h1>SIGN-UP</h1>
+<form method="POST" action="/user/register">  
+<input type="text" id="message" value="{{{message}}}" name="message" hidden>
+<i class="fa fa-user icon" aria-hidden="true"></i>
+<input type="text" name= "name" id="name" placeholder=" Enter your name" required><br>
+<i class="fa fa-envelope icon" aria-hidden="true"></i>
+<input type="email" name="email" id="email" placeholder=" Enter your Email" required><br/>
+<i class="fa fa-lock icon" aria-hidden="true"></i>
+<input type="password" name="password" id="password" placeholder="Enter your password" required><br/>
+<i class="fa fa-lock icon" aria-hidden="true"></i>
+<input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-enter password" required>
+<button type="submit">Register</button>
+</form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded',function() {
+    document.querySelector('form').addEventListener('submit',formValidate(e));
+});
+
+const message = document.getElementById('message').value;
+	if(message){
+        
+		Swal.fire(message);
+	}
+
+     function formValidate(e) {
+        e.preventDefault();
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        if(name == "" || email =="" || password == "" || confirmPassword == "" ) {
+            Swal.fire("All fields are required!");
+            return false;
+        } else if (password != confirmPassword) {
+            Swal.fire("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
+
+</script>
+</body>
+</html>
